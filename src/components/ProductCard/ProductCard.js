@@ -4,11 +4,13 @@ import CartContext from '../../context/cart/CartContext'
 
 function ProductCard() {
     const products = GetProducts()
-    const { cartItems, addToCart } = useContext(CartContext)
+    const { cartItems, addToCart, subTotal, setSubTotal} = useContext(CartContext)
 
     function handleAdd(product) {
         if(!cartItems.includes(product)) {
             addToCart(product)
+
+            setSubTotal(subTotal + product.price)
         }
         else {
             alert('Already added in cart')
@@ -28,12 +30,12 @@ function ProductCard() {
                                     <div className="px-2 mx-auto">Price: $ {product.price}</div>
                                 </div>
                             </div>
-                            <div className="cursor-pointer border-2 border-t-0 border-red-400 bg-teal-500 p-2 w-64 mt-0 mx-8 rounded-b-lg">
-                                <div className="text-center bg-green-400 rounded-lg mb-1 mx-8 p-2 font-semibold"
+                            <button className="cursor-pointer border-2 border-t-0 border-red-400 bg-teal-500 p-2 w-64 mt-0 mx-8 rounded-b-lg">
+                                <div className="text-center bg-orange-300 hover:bg-orange-400 rounded-lg mb-1 mx-8 p-2 font-semibold"
                                 onClick={() => handleAdd(product)}>
                                     Add to Cart
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     ))
                 }      

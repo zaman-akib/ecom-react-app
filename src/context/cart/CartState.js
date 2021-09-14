@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 import CartContext from './CartContext'
 import CartReducer from './CartReducer'
 import { SHOW_HIDE_CART, ADD_TO_CART, DELETE_FROM_CART, CLEAR_CART } from '../ActionTypes'
@@ -8,6 +8,8 @@ const CartState = ({children}) => {
         showCart: false,
         cartItems: [],
     }
+
+    const [subTotal, setSubTotal] = useState(0)
 
     const [state, dispatch] = useReducer(CartReducer, initialState)
 
@@ -42,6 +44,8 @@ const CartState = ({children}) => {
             showCart: state.showCart,
             cartItems: state.cartItems,
             totalAmount: state.totalAmount,
+            subTotal,
+            setSubTotal,
             addToCart,
             showHideCart,
             deleteFromCart,

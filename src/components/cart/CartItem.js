@@ -3,16 +3,26 @@ import CartContext from '../../context/cart/CartContext'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { FiMinusSquare, FiPlusSquare } from 'react-icons/fi'
 
-const CartItem = ({ item, totalAmount, setTotalAmount }) => {
-  const { deleteFromCart } = useContext(CartContext)
+const CartItem = ({ item }) => {
+  const { subTotal, setSubTotal, deleteFromCart } = useContext(CartContext)
   const [count, setCount] = useState(1)
 
-  function increase(amount) {
+  function handleIncrease(price) {
       setCount(count+1)
+
+      setSubTotal(subTotal + price)
   }
 
-  function decrease(amount) {
+  function handleDecrease(price) {
         setCount(count-1)
+
+        setSubTotal(subTotal - price)
+  }
+
+  function handleDelete(id, count, price) {
+    deleteFromCart(id)
+
+    setSubTotal(subTotal - count * price)
   }
 
   return (
@@ -39,15 +49,15 @@ const CartItem = ({ item, totalAmount, setTotalAmount }) => {
                 </div>
                 <div className="flex-1 flex items-end justify-between text-sm">
                     <div className="flex flex-row">
-                    <FiMinusSquare className="cursor-pointer" size={25} onClick={() => decrease(item.price)}/>
-                    {count === 0 ? deleteFromCart(item.id) : (
+                    <FiMinusSquare className="cursor-pointer" size={25} onClick={() => handleDecrease(item.price)}/>
+                    {count === 0 ? handleDelete(item.id, count, item.price) : (
                         <div className="px-5 text-lg font-bold">{count}</div>
                     )}
-                    <FiPlusSquare size={25} className="cursor-pointer" onClick={() => increase(item.price)}/>
+                    <FiPlusSquare size={25} className="cursor-pointer" onClick={() => handleIncrease(item.price)}/>
                     </div>
                     <div className="flex">
                     <RiDeleteBin5Line size={25} className="cursor-pointer"
-                    onClick={() => deleteFromCart(item.id)}/>
+                    onClick={() => handleDelete(item.id, count, item.price)}/>
                     </div>
                 </div>
                 </div>

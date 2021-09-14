@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import GetProducts from '../../context/products'
+import CartContext from '../../context/cart/CartContext'
 
 function ProductCard() {
     const products = GetProducts()
+    const { cartItems, addToCart } = useContext(CartContext)
+
+    function handleAdd(product) {
+        if(!cartItems.includes(product)) {
+            addToCart(product)
+        }
+        else {
+            alert('Already added in cart')
+        }
+    }
 
     return (
         <React.Fragment>
@@ -18,7 +29,8 @@ function ProductCard() {
                                 </div>
                             </div>
                             <div className="cursor-pointer border-2 border-t-0 border-red-400 bg-teal-500 p-2 w-64 mt-0 mx-8 rounded-b-lg">
-                                <div className="text-center bg-green-400 rounded-lg mb-1 mx-8 p-2 font-semibold">
+                                <div className="text-center bg-green-400 rounded-lg mb-1 mx-8 p-2 font-semibold"
+                                onClick={() => handleAdd(product)}>
                                     Add to Cart
                                 </div>
                             </div>

@@ -27,7 +27,7 @@ const CartState = ({children}) => {
     const deleteFromCart = id => {
         dispatch({
             type: DELETE_FROM_CART,
-            payload: id,
+            payload: id
         })
     }
 
@@ -41,11 +41,13 @@ const CartState = ({children}) => {
         <CartContext.Provider value={{
             showCart: state.showCart,
             cartItems: state.cartItems,
+            totalAmount: state.totalAmount,
             addToCart,
             showHideCart,
             deleteFromCart,
             clearCart,
         }}>
+            {children}
         </CartContext.Provider>
     )
 }

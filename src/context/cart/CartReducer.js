@@ -1,4 +1,4 @@
-import {ADD_TO_CART, SHOW_HIDE_CART, DELETE_FROM_CART, CLEAR_CART} from '../ActionTypes'
+import {ADD_TO_CART, SHOW_HIDE_CART, DELETE_FROM_CART, CLEAR_CART } from '../ActionTypes'
 
 const CartReducer = (state, action) => {
     switch (action.type) {

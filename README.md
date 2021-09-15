@@ -1,3 +1,5 @@
+<h2><a href="https://ecom-react-app-akib.netlify.app/">Click Here for Live Preview</a></h2>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

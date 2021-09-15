@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import GetProducts from '../../context/products'
 import CartContext from '../../context/cart/CartContext'
-import { FiMinusSquare, FiPlusSquare } from 'react-icons/fi'
 
 function ProductCard() {
     const products = GetProducts()
-    const { cartItems, addToCart , updateQuantity, deleteFromCart} = useContext(CartContext)
+    const { cartItems, addToCart } = useContext(CartContext)
 
     function handleAdd(product) {
         if(!cartItems.includes(product)) {
@@ -15,15 +14,6 @@ function ProductCard() {
         else {
             alert('Already added in cart')
         }
-    }
-
-    function isExistInCart(id) {
-        for(let i=0; i<cartItems.length; i++) {
-            if(cartItems[i].id === id) 
-                return true
-        }
-
-        return false
     }
 
     return (
@@ -40,23 +30,10 @@ function ProductCard() {
                                 </div>
                             </div>
                             <div className="flex justify-center items-center border-2 border-t-0 border-red-400 bg-teal-500 p-2 w-64 mt-0 mx-8 rounded-b-lg">
-                                <div className="text-center bg-orange-300 w-full hover:bg-orange-400 rounded-lg mb-1 mx-8 p-2 font-semibold">
-                                    {!isExistInCart(product.id) ? (
-                                        <button onClick={() => handleAdd(product)}>
-                                            Add to Cart
-                                        </button>
-                                    ) : (
-                                        <div className="flex items-center justify-center text-sm">
-                                            <div className="flex items-center">
-                                                <FiMinusSquare className="cursor-pointer" size={25} />
-                                                {1 === 0 ? <div></div> : (
-                                                    <div className="px-5 text-lg font-bold">{1}</div>
-                                                )}
-                                                <FiPlusSquare size={25} className="cursor-pointer" />
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
+                                <button className="text-center bg-orange-300 w-full hover:bg-orange-400 rounded-lg mb-1 mx-8 p-2 font-semibold" 
+                                onClick={() => handleAdd(product)}> 
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
                     ))

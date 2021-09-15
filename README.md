@@ -1,4 +1,4 @@
-<h1><a href="https://ecom-react-app-akib.netlify.app/">Clicke Here to see the Live Preview of this Project</a></h1>
+<h2><a href="https://ecom-react-app-akib.netlify.app/">Clicke Here for Live Previewt</a></h2>
 
 # Getting Started with Create React App
 

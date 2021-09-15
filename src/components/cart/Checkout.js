@@ -18,7 +18,7 @@ function Checkout() {
             </div>
             {
                 cartItems.map(item => (
-                    <div className="mt-5">
+                    <div className="mt-5 flex w-2/5 p-2 border-2">
                         <div className="hidden">{total += item.quantity * item.price}</div>
                         <div className="flow-root">
                         <ul className="-my-6 divide-y divide-gray-200">
@@ -49,7 +49,7 @@ function Checkout() {
                 <p>${total.toFixed(2)}</p>
             </div>
             <div className="text-orange-600 text-4xl m-6">Your order has been placed</div>
-            <div className="text-indigo-600 text-2xl font-medium hover:text-indigo-500" onClick={handleContinue}>
+            <div className="text-indigo-600 text-2xl mb-10 font-medium hover:text-indigo-500" onClick={handleContinue}>
                 <Link to='/'>
                     Continue Shopping<span aria-hidden="true"> &rarr;</span>
                 </Link>

@@ -6,6 +6,9 @@ import CartContext from '../../context/cart/CartContext'
 
 function NavBar() {
     const { cartItems, showHideCart } = useContext(CartContext)
+    let totalItems = 0
+
+    cartItems.map(item => (totalItems += item.quantity))
 
     return (
         <nav className="flex sticky top-0 z-50 justify-between bg-teal-500">
@@ -24,7 +27,7 @@ function NavBar() {
                     <HiOutlineShoppingCart size={30}/>
                     {
                         cartItems.length > 0 && <div className="">
-                            <span className="bg-orange-300 rounded-full flex h-5 w-5 font-bold text-sm justify-center">{cartItems.length}</span>
+                            <span className="bg-orange-300 rounded-full flex h-5 w-5 font-bold text-sm justify-center">{totalItems}</span>
                         </div>
                     }
                 </button>

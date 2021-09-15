@@ -4,13 +4,12 @@ import CartContext from '../../context/cart/CartContext'
 
 function ProductCard() {
     const products = GetProducts()
-    const { cartItems, addToCart, subTotal, setSubTotal} = useContext(CartContext)
+    const { cartItems, addToCart } = useContext(CartContext)
 
     function handleAdd(product) {
         if(!cartItems.includes(product)) {
+            product.quantity = 1
             addToCart(product)
-
-            setSubTotal(subTotal + product.price)
         }
         else {
             alert('Already added in cart')

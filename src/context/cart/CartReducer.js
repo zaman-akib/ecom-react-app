@@ -1,4 +1,4 @@
-import {ADD_TO_CART, SHOW_HIDE_CART, DELETE_FROM_CART, CLEAR_CART } from '../ActionTypes'
+import {ADD_TO_CART, SHOW_HIDE_CART, DELETE_FROM_CART, CLEAR_CART, UPDATE_QUANTITY } from '../ActionTypes'
 
 const CartReducer = (state, action) => {
     switch (action.type) {
@@ -11,6 +11,13 @@ const CartReducer = (state, action) => {
             return {
                 ...state,
                 cartItems: [...state.cartItems, action.payload]
+            }
+        case UPDATE_QUANTITY:
+            return {
+                ...state,
+                cartItems: state.cartItems.map(item => 
+                    item.id === action.payload.id ? Object.assign({}, item, { quantity: item.quantity + action.payload.value }) : item
+                )
             }
         case DELETE_FROM_CART:
             return {

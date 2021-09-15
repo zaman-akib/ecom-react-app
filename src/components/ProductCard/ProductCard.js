@@ -3,7 +3,8 @@ import GetProducts from '../../context/products'
 import CartContext from '../../context/cart/CartContext'
 
 function ProductCard() {
-    const products = GetProducts()
+    const products =  GetProducts()
+
     const { cartItems, addToCart } = useContext(CartContext)
 
     function handleAdd(product) {

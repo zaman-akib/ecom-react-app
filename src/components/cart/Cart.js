@@ -77,13 +77,13 @@ export default function Cart() {
                         <p>Subtotal</p>
                         <p>${total.toFixed(2)}</p>
                       </div>
-                      <Link to='/checkout'>
-                        <div className="mt-6">
-                          <button className="flex justify-center ml-auto px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                            Checkout
-                          </button>
-                        </div>
-                      </Link>
+                      <div className="mt-6">
+                        <button
+                          className="flex justify-center ml-auto px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                        >
+                          <Link to='/checkout'> Checkout </Link>
+                        </button>
+                      </div>
                       <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
                         <p>
                           or{' '}

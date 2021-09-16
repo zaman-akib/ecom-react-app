@@ -6,21 +6,16 @@ function GetProducts() {
     useEffect(() => {
     const fetchData = async () => {
         try {
-        const result = await fetch('https://fakestoreapi.com/products');
-        const body = await result.json();
-        setData(body);
+        const result = await fetch('https://fakestoreapi.com/products')
+        const body = await result.json()
+        setData(body)
         } catch(err) {
             // error handling code
         } 
     }
 
     fetchData()
-    }, [])
-
-    
-    useEffect(() =>{
-        localStorage.setItem('products', JSON.stringify(data))
-        console.log(data)
+    localStorage.setItem('products', JSON.stringify(data))
     }, [data])
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import GetProducts from '../../context/products'
 import CartContext from '../../context/cart/CartContext'
 
@@ -6,15 +6,13 @@ function ProductCard() {
     const [products, setProducts] = useState([])
     const { cartItems, addToCart } = useContext(CartContext)
 
-    // if(JSON.parse(localStorage.getItem('products')) === null){
-    //     GetProducts()
-    // }
-
-    GetProducts()
-    
-    useEffect(() => {
+    if(!localStorage.getItem('products')){
+        GetProducts()
+    }
+        
+    if(localStorage.getItem('products')){
         setProducts(JSON.parse(localStorage.getItem('products')))
-    }, [])
+    }
 
     function handleAdd(product) {
         if(!cartItems.includes(product)) {

@@ -20,6 +20,7 @@ function GetProducts() {
     
     useEffect(() =>{
         localStorage.setItem('products', JSON.stringify(data))
+        console.log(data)
     }, [data])
 }
 

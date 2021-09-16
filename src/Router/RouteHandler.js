@@ -1,8 +1,8 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import EcomApp from '../components/ecom-app/EcomApp'
+import EcomApp from '../components/Main/EcomApp'
 import NotFound from '../components/NotFound/NotFound'
-import Checkout from '../components/cart/Checkout'
+import Checkout from '../components/Cart/Checkout'
 
 function RouteHandler() {
     return (

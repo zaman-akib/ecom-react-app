@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import GetProducts from '../../context/products'
-import CartContext from '../../context/cart/CartContext'
+import GetProducts from './apiCall'
+import CartContext from '../../context/CartContext/CartContext'
 
 function ProductCard() {
     const [products, setProducts] = useState([])

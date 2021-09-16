@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../NavBar/NavBar';
-import ProductCard from '../ProductCard/ProductCard'
-import Cart from '../cart/Cart'
+import ProductCard from '../Product/ProductCard'
+import Cart from '../Cart/Cart'
 
 function EcomApp() {
   return (

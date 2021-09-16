@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
-import CartContext from '../../context/cart/CartContext'
+import CartContext from '../../context/CartContext/CartContext'
 
 function Checkout() {
     const {cartItems, showHideCart, clearCart} = useContext(CartContext)

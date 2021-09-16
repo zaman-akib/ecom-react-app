@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { HiOutlineShoppingCart } from 'react-icons/hi'
 //import { BiSearchAlt2 } from 'react-icons/bi'
-import CartContext from '../../context/cart/CartContext'
+import CartContext from '../../context/CartContext/CartContext'
 
 
 function NavBar() {

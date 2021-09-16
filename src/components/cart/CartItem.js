@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CartContext from '../../context/cart/CartContext'
+import CartContext from '../../context/CartContext/CartContext'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { FiMinusSquare, FiPlusSquare } from 'react-icons/fi'
 

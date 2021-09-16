@@ -1,18 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import GetProducts from '../../context/products'
 import CartContext from '../../context/cart/CartContext'
 
 function ProductCard() {
-    const [products, setProducts] = useState([])
     const { cartItems, addToCart } = useContext(CartContext)
-
-    if(!localStorage.getItem('products')){
-        GetProducts()
-    }
-        
-    if(localStorage.getItem('products')){
-        setProducts(JSON.parse(localStorage.getItem('products')))
-    }
+    const products = GetProducts()
 
     function handleAdd(product) {
         if(!cartItems.includes(product)) {
@@ -54,5 +46,4 @@ function ProductCard() {
         </React.Fragment>
     )
 }
-
 export default ProductCard

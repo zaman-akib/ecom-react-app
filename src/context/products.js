@@ -3,20 +3,27 @@ import { useState, useEffect } from 'react'
 function GetProducts() {
     const [data, setData] = useState([])
 
-    useEffect(() => {
-    const fetchData = async () => {
-        try {
-        const result = await fetch('https://fakestoreapi.com/products')
-        const body = await result.json()
-        setData(body)
-        } catch(err) {
-            // error handling code
-        } 
-    }
+    useEffect(()=>{
+        if(!localStorage.getItem('products')){
+            const fetchData = async() => {
+                try {
+                    const result = await fetch('https://fakestoreapi.com/products')
+                    const body = await result.json()
+                    localStorage.setItem('products', JSON.stringify(body))
+                    setData(body)
+                    } catch(err) {
+                        // error handling code
+                    } 
+            }
+            fetchData()
+        }
+            
+        else if(localStorage.getItem('products')){
+            setData(JSON.parse(localStorage.getItem('products')))
+        }
+    },[])
 
-    fetchData()
-    localStorage.setItem('products', JSON.stringify(data))
-    }, [data])
+    return data
 }
 
 export default GetProducts

@@ -1,8 +1,8 @@
 import { Fragment, useContext} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import CartContext from '../../context/CartContext/CartContext'
-import CartItem from './CartItem'
+import CartContext from '../../context/cart/CartContext'
+import CartItem from '../cart/CartItem'
 import {Link} from 'react-router-dom'
 
 export default function Cart() {

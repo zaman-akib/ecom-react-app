@@ -6,7 +6,7 @@ function ProductCard() {
     const [products, setProducts] = useState([])
     const { cartItems, addToCart } = useContext(CartContext)
 
-    if(JASON.parse(localStorage.getItem('products')) === null){
+    if(JSON.parse(localStorage.getItem('products')) === null){
         GetProducts()
     }
     

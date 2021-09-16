@@ -1,15 +1,26 @@
 import { useState, useEffect } from 'react'
 
 function GetProducts() {
-    const [products, setProducts] = useState([])
+    const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    }, []);
+    const fetchData = async () => {
+        try {
+        const result = await fetch('https://fakestoreapi.com/products');
+        const body = await result.json();
+        setData(body);
+        } catch(err) {
+            // error handling code
+        } 
+    }
 
-    return products
+    fetchData()
+    }, [])
+
+    
+    useEffect(() =>{
+        localStorage.setItem('products', JSON.stringify(data))
+    }, [data])
 }
 
 export default GetProducts

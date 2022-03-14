@@ -6,7 +6,7 @@
 1. Add multiple products to card
 2. Update products from cart
 3. Checkout system
-4. Image caching mechanism
+4. Save data in localstorage
 5. Api Call to fetch data
 
 ## Technologies used
